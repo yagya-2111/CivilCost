@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>App Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    html{
+      scroll-behavior: smooth;
+    }
+    body {
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .bg-light-blue {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100vh;
+      background-color: #B4E4E9;
+      transform: skewX(-12deg) translateX(20%);
+      z-index: -1;
+    }
+
+    .bg-pink-blob {
+      position: absolute;
+      top: 33%;
+      right: 33%;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background-color: #FFB6B9;
+      z-index: -1;
+    }
+
+    .decorative-square {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid rgba(200, 200, 200, 0.3);
+      z-index: -1;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+    }
+
+    .brand-logo {
+      font-weight: 700;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 48px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #666;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #333;
+    }
+
+    .login-btn {
+      background-color: #4361EE;
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      padding: 8px 32px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #3a56d4;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 48px 0 96px;
+    }
+
+    .hero-content {
+      flex: 1;
+      width: 100%;
+      padding-right: 24px;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    .hero-text {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 32px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .download-btn {
+      background-color: #4361EE;
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      padding: 12px 40px;
+      font-weight: 500;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #3a56d4;
+    }
+
+    .hero-image {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin-top: 48px;
+    }
+
+    .phone-mockup {
+      width: 320px;
+      border-radius: 40px;
+      border: 8px solid white;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      background-color: white;
+    }
+
+    .app-header {
+      background-color: #FFA94D;
+      padding: 16px;
+      border-top-left-radius: 32px;
+      border-top-right-radius: 32px;
+    }
+
+    .app-title {
+      color: #333;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .calculator {
+      background-color: white;
+      border-radius: 9999px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-text {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .app-content {
+      padding: 16px;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .course-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .course-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .course-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .course-count {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .about-section {
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 64px;
+      max-width: 700px;
+    }
+
+    .about-section h2 {
+      font-size: 32px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .about-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+      #about{
+        transition: background-color 2s ease-out;
+      }
+      #about:target{
+        background-color: rgb(212, 212, 209);
+      }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        flex-direction: column;
+      }
+
+      .hero-content,
+      .hero-image {
+        width: 100%;
+        padding-right: 0;
+      }
+
+      .hero-title {
+        font-size: 36px;
+      }
+.hero-subtitle {
+        font-size: 24px;
+        padding-bottom: 5px;
+
+      }
+      .hero-image {
+        justify-content: center;
+       
+      }
+    }
+    /* From Uiverse.io by Yaya12085 */ 
+.form {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 30px 30px -30px rgba(27, 26, 26, 0.315);
+}
+
+.form .title {
+  color: royalblue;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form input {
+  outline: 0;
+  border: 1px solid rgb(219, 213, 213);
+  padding: 8px 14px;
+  border-radius: 8px;
+  width: 100%;
+  height: 50px;
+}
+
+.form textarea {
+  border-radius: 8px;
+  height: 100px;
+  width: 100%;
+  resize: none;
+  outline: 0;
+  padding: 8px 14px;
+  border: 1px solid rgb(219, 213, 213);
+}
+
+.form button {
+  align-self: flex-end;
+  padding: 8px;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: royalblue;
+  color: #fff;
+  cursor: pointer;
+
+}
+    
+  </style>
+</head>
+<body>
+  <div class="bg-light-blue"></div>
+  <div class="bg-pink-blob"></div>
+
+  <div class="container">
+    <nav>
+      <div class="brand-logo">CiviloCost</div>
+      <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/index">Features</a>
+        <a href="#about">About</a>
+      </div>
+      <a href="/login"><button class="login-btn">Login</button></a>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Our app at your fingertips, everywhere</h1>
+
+        <h2 class="hero-subtitle">Smarter Construction Cost Estimator</h2>
+
+        <p class="hero-text">Estimate your construction project costs accurately by entering dimensions, materials, and labor details. Get a clear cost breakdown with smart suggestions to optimize your budget.
+
+          .</p>
+        <button class="download-btn">Download</button>
+
+        <!-- About Our App Section -->
+        <div class="about-section" id="about">
+          <h2>About Our App</h2>
+          <p>
+            BuildWise is a user-friendly web application designed to help civil engineers, contractors, and project managers accurately estimate construction costs with ease and efficiency. Tailored to simplify the budgeting process, BuildWise enables users to input project-specific details such as dimensions, material choices, labor hours, and more — and delivers an instant, detailed cost analysis.
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="phone-mockup">
+          <div class="app-header">
+            <h3 class="app-title">Hey, Welcome to CiviloCost Estimate your budget in Once</h3>
+            <div class="calculator">
+              <span class="calculator">Calculate</span>
+            </div>
+          </div>
+          <div class="app-content">
+            <div class="course-grid">
+              <div class="course-card">
+                <div class="course-icon" style="background-color: #e6f0ff;"></div>
+                <h4 class="course-title">Material </h4>
+                <p class="course-count"> Steel , Iron</p>
+              </div>
+              <div class="course-card">
+                <div class="course-icon" style="background-color: #e6fff0;"></div>
+                <h4 class="course-title">Dimensions</h4>
+                <p class="course-count">LxBxH</p>
+              </div>
+              <div class="course-card">
+                <div class="course-icon" style="background-color: #fff6e6;"></div>
+                <h4 class="course-title">Graph</h4>
+                <p class="course-count">Bar , Pie Chart</p>
+              </div>
+              <div class="course-card">
+                <div class="course-icon" style="background-color: #f0e6ff;"></div>
+                <h4 class="course-title">Labour Cost </h4>
+                <p class="course-count">In Rupee</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <form class="form" id="contactForm">
+    <div class="title">Contact us</div>
+    <input type="text" id="email" placeholder="Your email" class="input">
+    <textarea id="message" placeholder="Your message"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function addDecorativeSquares() {
+      const body = document.body;
+      for (let i = 0; i < 20; i++) {
+        const square = document.createElement('div');
+        square.classList.add('decorative-square');
+        square.style.top = `${Math.random() * 100}%`;
+        square.style.left = `${Math.random() * 100}%`;
+        square.style.transform = `rotate(${Math.random() * 45}deg)`;
+        body.appendChild(square);
+      }
+    }
+    window.addEventListener('DOMContentLoaded', addDecorativeSquares);
+
+    
+    document.querySelector(".form").addEventListener("submit", function(event) {
+    event.preventDefault();  // Prevent form submission
+
+    // Get input values
+    const email = document.querySelector("#email").value;
+    const message = document.querySelector("#message").value;
+
+    // Validate the email (checks if it's a valid Gmail address)
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid Gmail address.");
+      return; // Stop further actions
+    }
+
+    // Check if any field is empty
+    if (email === "" || message === "") {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    // If validation passes
+    alert("Form submitted successfully!");
+    // You can add further code to send the data here if needed
+  });
+
+
+  </script>
+</body>
+</html>
