@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Unstop Style</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* /static/css/style.css (or your main stylesheet) */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/bg.png'); /* Local image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: flex;
+    max-width: 1280px;
+    width: 90%;
+    height: auto;
+    overflow: hidden;
+}
+
+.left-section {
+    width: 50%;
+    background-color: #facc15;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.left-section img {
+    width: 224px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.left-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 16px;
+    color: #374151;
+}
+
+.left-section p {
+    color: #4b5563;
+    text-align: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-top: 8px;
+}
+
+.right-section {
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-section h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.5);
+}
+
+.login-button {
+    width: 100%;
+    margin-top: 24px;
+    background-color: #1e3a8a;
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.login-button:hover {
+    background-color: #172e6f;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.signup-link a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.success-message {
+    color: green;
+    margin-top: 10px;
+    text-align: center;
+}
+        /* Your existing login CSS */
+        /* Add styling for the error and success messages if you want */
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="login-container">
+        <div class="left-section">
+           
+            <h2>CiviloCost</h2>
+            <p>(ONLY FOR SHOWCASE , NOT WORKING)</p>
+        </div>
+        <div class="right-section">
+            <h2>Log In</h2>
+            <form method="POST" action="#index">
+               
+             
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-button"><a </a>Log In</button>
+            </form>
+            <div class="signup-link">
+                Don't have an account? <a href="#signup">Sign up</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
